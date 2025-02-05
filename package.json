@@ -1,7 +1,6 @@
 {
-  "name": "sandefjord-react-library",
+  "name": "kodehode",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "exports": {
     "./components": {
