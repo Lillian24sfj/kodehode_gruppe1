@@ -4,6 +4,8 @@
     "dbaeumer.vscode-eslint",
     "heybourn.headwind",
     "bradlc.vscode-tailwindcss",
-    "unifiedjs.vscode-mdx"
+    "unifiedjs.vscode-mdx",
+    "ms-vscode-remote.remote-containers",
+    "ms-azuretools.vscode-docker"
   ]
 }
