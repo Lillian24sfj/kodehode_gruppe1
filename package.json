@@ -9,6 +9,9 @@
     },
     "./hooks": {
       "import": "./src/Hooks/index.ts"
+    },
+    "./utilities": {
+      "import": "./src/Utilities/index.ts"
     }
   },
   "scripts": {
