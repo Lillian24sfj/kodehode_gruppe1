@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 /**
  * An object containing metadata for the concrete failure
@@ -185,6 +185,14 @@ const initialState: Pending = {
 export function useJson<T = unknown>(url: URL | string): RequestState<T> {
   const [state, setState] = useState<RequestState<T>>(initialState);
 
+  // The user might pass in a URL object which can, if created incorrectly
+  // be reacreated on each render pass. To Ease the burden on junior developers
+  // we are caching this here, and only changing it if the string representation
+  // actually changes. This is also the reason we disable ESLint for the line
+  // as it wants the url to also be a dependency, which in this case it's not.
+  // eslint-disable-next-line
+  const cachedUrl = useMemo(() => url, [url.toString()]);
+
   useEffect(() => {
     // Clear out the displayed data when performing a new fetch
     setState(initialState);
@@ -194,7 +202,7 @@ export function useJson<T = unknown>(url: URL | string): RequestState<T> {
     const controller = new AbortController();
 
     // Call out to the fetch function and set the state to the result
-    fetchJson<T>(url, { signal: controller.signal }).then((result) => {
+    fetchJson<T>(cachedUrl, { signal: controller.signal }).then((result) => {
       // This is an async callback, only set the state if
       // the request hasn't been aborted
       if (!controller.signal.aborted) {
@@ -213,7 +221,7 @@ export function useJson<T = unknown>(url: URL | string): RequestState<T> {
       setState(initialState);
     };
     // This effect is tied to the given URL
-  }, [url]);
+  }, [cachedUrl]);
 
   /**
    * We are keeping the whole state as a single object,
