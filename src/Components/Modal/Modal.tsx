@@ -4,8 +4,22 @@ import style from "./Modal.module.css";
 import { IoCloseSharp } from "react-icons/io5";
 import { BsThreeDots } from "react-icons/bs";
 
-
-export function Modal() {
+export interface ModalProperties {
+    /**
+     * The children property is a special React property
+     * that allows the components to be used as a container
+     * providing functionality and/or wrapping the content
+     * into some defined HTML and Styling.
+     */
+    children: React.ReactNode;
+  }
+export function Modal( {children}: ModalProperties) {
+    /**
+     * The useState hook is used to create a state variable
+     * called isOpen which is set to false by default.
+     * The setIsOpen function is used to update the state
+     * variable to true when the button is clicked.
+     */
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -14,7 +28,7 @@ export function Modal() {
             {isOpen && (
                 <div className={style.modalContent}>
                     <button onClick={() => setIsOpen(false)} className={style.closeButton}><IoCloseSharp /></button>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos dicta aut cumque voluptatum debitis aliquid eum tenetur ab iure maxime asperiores, illum est libero nesciunt vel, quidem dolore molestias iusto.</p>
+                    {children}
                 </div>
             )}
         </div>

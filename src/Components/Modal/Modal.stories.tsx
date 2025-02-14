@@ -9,9 +9,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Modal} from "./Modal";
 
 /**
- * Meta information about this page and how to render this component
- * can be configured here. Of note is the title it should be displayed under,
- * along with any organizational structures like root directory.
+ * hello
  *
  * More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
  */
@@ -42,23 +40,16 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {
-    children: <p>Example child</p>,
-  },
-};
-
-/**
- * The JSDoc comment tags (like this one), can
- * be used alongside the "autodoc" feature of
- * Storybook to automatically use these as documentation
- * for the rendered component.
- */
-export const LargeChildComponent: Story = {
-  args: {
     children: (
-      <div>
-        <p>A more complex child component!</p>
-        <p>Now with multiple lines!</p>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
+        <h1 style={{ textAlign: "center", color: "red", marginBottom: "20px", fontSize: "26px"}}>Lorem ipsum dolor sit.</h1>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, ipsum?</p>
+        <img src="https://www.guru-utvikling.no/wp-content/uploads/2017/05/Bilde-til-sak-om-bilder-1024x758.jpg" alt="" style={{width: "150px", height: "150px", marginBottom: "20px" }}/>
+
       </div>
     ),
   },
 };
+
+
+
