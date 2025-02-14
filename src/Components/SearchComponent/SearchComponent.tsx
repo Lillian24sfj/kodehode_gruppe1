@@ -4,11 +4,12 @@ import { IoSearch } from "react-icons/io5";
 import { useState } from "react";
 
 export function SearchComponent() {
-  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (search : React.FormEvent<HTMLFormElement>) => {
-      search.preventDefault()
-      console.log(searchTerm)
+      search.preventDefault();
+      console.log(searchTerm);
+      setSearchTerm("");
   };
 
   return (
