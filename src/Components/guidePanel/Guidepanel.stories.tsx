@@ -57,7 +57,7 @@ export const Hidden: Story = {
   };
 export const LongMessage: Story = {
   args: {
-    message: "This is a longer giude message that demonstrates how the panel handles more text content.",
+    message: "This is a longer guide message that demonstrates how the panel handles more text content.",
     isVisible: true
   },
 };

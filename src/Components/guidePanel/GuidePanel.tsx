@@ -1,6 +1,7 @@
 import React from "react";
 import { RxAvatar } from "react-icons/rx";
 
+
 interface GuidePanelProps {
   message: string;
   isVisible: boolean;
@@ -11,7 +12,7 @@ export const GuidePanel: React.FC<GuidePanelProps> = ({ message, isVisible }) =>
 
   return (
     <div className="panelContainer">
-      <RxAvatar />
+      <RxAvatar className="RxAvatar"/>
       <p className="panelText">{message}</p>
     </div>
   );
