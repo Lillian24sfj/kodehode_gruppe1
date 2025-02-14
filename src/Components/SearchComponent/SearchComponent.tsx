@@ -2,7 +2,7 @@
 import style from "./SearchComponent.module.css";
 import { IoSearch } from "react-icons/io5";
 import { useState } from "react";
-import { motion } from "framer-motion"; // Make sure to import from 'framer-motion'
+import { motion } from "framer-motion"
 
 export function SearchComponent() {
   const [searchTerm, setSearchTerm] = useState("");
