@@ -13,7 +13,7 @@ export function SearchComponent() {
     setSearchTerm("");
   };
 
-  /*Animation with motion*/
+  /*Animation with framer motion*/
   const iconAnimation = {
     hover: { scale: 1.2, rotate: 15 },
     tap: { scale: 0.9, rotate: -15 },
