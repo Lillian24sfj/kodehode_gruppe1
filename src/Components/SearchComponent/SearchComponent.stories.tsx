@@ -9,11 +9,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SearchComponent } from "./SearchComponent";
 
 /**
- * Meta information about this page and how to render this component
- * can be configured here. Of note is the title it should be displayed under,
- * along with any organizational structures like root directory.
- *
- * More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+* Search component using "searchTerm" to get the value of the input field. 
  */
 const meta = {
   title: "Components/SearchComponent",
@@ -42,23 +38,5 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {
-    children: <p>Example child</p>,
-  },
-};
-
-/**
- * The JSDoc comment tags (like this one), can
- * be used alongside the "autodoc" feature of
- * Storybook to automatically use these as documentation
- * for the rendered component.
- */
-export const LargeChildComponent: Story = {
-  args: {
-    children: (
-      <div>
-        <p>A more complex child component!</p>
-        <p>Now with multiple lines!</p>
-      </div>
-    ),
   },
 };

@@ -6,9 +6,9 @@ export function SearchComponent() {
   return (
     <div className={style.search_bar_flex_container}>
       <input className={style.search_input_field} type="text" />
-      <div className={style.search_magnifying_icon}>
+      <button className={style.search_magnifying_icon}>
         <IoSearch className={style.magnifying_icon}/>
-      </div>
+      </button>
     </div>
   );
 }
