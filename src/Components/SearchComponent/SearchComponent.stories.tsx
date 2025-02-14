@@ -9,7 +9,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SearchComponent } from "./SearchComponent";
 
 /**
-* Search component using "searchTerm" to get the value of the input field. 
+* Search component uses useState with "searchTerm" to set the value of the userInput. 
  */
 const meta = {
   title: "Components/SearchComponent",
