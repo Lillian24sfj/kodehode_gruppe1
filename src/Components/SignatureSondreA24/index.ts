@@ -1,2 +1,2 @@
-export {SignatureSondreA24} from "./SignatureSondreA24";
+export {SignatureSondreA24  } from "./SignatureSondreA24";
 
