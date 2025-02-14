@@ -1,3 +1,3 @@
 export function SignatureLG() {
-  return <p>LarsG</p>
+  return <p>LarsG</p>;
 }

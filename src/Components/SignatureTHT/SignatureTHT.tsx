@@ -1,10 +1,7 @@
 export function SignatureTHT() {
-    return (
+  return (
     //   <a href="https://github.com/Torjus24SFJ">
-        <p>
-            something clever
-        </p>
+    <p>something clever</p>
     //   </a>
-    )
-  }
-  
+  );
+}
