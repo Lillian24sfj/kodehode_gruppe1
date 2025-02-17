@@ -1,0 +1,16 @@
+.rating_flex_container {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+#rating_star {
+  transition:
+    fill 0.3s,
+    stroke 0.3s;
+}
+
+#rating_star:hover {
+  fill: #fadb14;
+  stroke: none;
+}
