@@ -1,25 +1,31 @@
 import { useEffect, useState } from "react";
-import { GiSkeleton } from "react-icons/gi";
-import { GiRaiseSkeleton } from "react-icons/gi";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+// @ts-expect-error do to vite static import.
+import animasjon from "./skjellett.lottie?url";
 
-export function Skeleton() {
+
+export function Skeleton({ duration = 2000 }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
-  }, []);
+    }, duration);
+
+    return () => clearTimeout(timer);
+  }, [duration]);
 
   return (
     <div>
       {loading ? (
-        <p style={{ fontSize: "50px" }}>
-          <GiRaiseSkeleton />
-        </p>
+       <DotLottieReact
+       src={animasjon}
+       loop
+       autoplay
+     />
       ) : (
-        <p style={{ fontSize: "50px" }}>
-          <GiSkeleton />
+       <p>
+        Finished loading
         </p>
       )}
     </div>

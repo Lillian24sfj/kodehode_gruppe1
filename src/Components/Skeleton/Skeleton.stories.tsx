@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 /** The component(s) that should be documented here */
-import { Skeleton } from "./skeleton";
+import { Skeleton } from "./Skeleton";
 
 /**
  * Meta information about this page and how to render this component
@@ -42,23 +42,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {
-    children: <p>Example child</p>,
+
   },
 };
 
-/**
- * The JSDoc comment tags (like this one), can
- * be used alongside the "autodoc" feature of
- * Storybook to automatically use these as documentation
- * for the rendered component.
- */
-export const LargeChildComponent: Story = {
-  args: {
-    children: (
-      <div>
-        <p>A more complex child component!</p>
-        <p>Now with multiple lines!</p>
-      </div>
-    ),
-  },
-};
