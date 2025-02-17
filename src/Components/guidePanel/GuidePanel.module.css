@@ -4,14 +4,12 @@
 }
 
 .RxAvatar {
-  padding: 4px;
-  width: 18px;
+  padding: 2px;
+  width: 36px;
   height: auto;
 }
 
 .panelText {
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 1px;
-  padding-right: 1px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
