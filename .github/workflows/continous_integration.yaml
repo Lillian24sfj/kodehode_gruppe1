@@ -2,7 +2,7 @@ name: contious integration
 on:
   pull_request:
     branches: [main]
-  workflow_dispatch  
+  workflow_dispatch:
 jobs:
   format:
     runs-on: ubuntu-latest
