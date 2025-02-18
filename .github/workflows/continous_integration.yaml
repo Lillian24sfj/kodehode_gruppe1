@@ -16,8 +16,8 @@ jobs:
       - run: npm clean-install
       - run: npm run format
 
-jobs:
-  format:
+
+  Eslint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
