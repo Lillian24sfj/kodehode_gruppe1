@@ -26,4 +26,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "22.x"
-      - run: npm run lint      
+      - run: npm clean-install    
+      - run: npm run lint
+            
