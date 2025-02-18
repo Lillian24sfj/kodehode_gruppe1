@@ -7,7 +7,14 @@ export function DateAndTime() {
   useEffect(() => {
     const dateControl = dateControlRef.current;
     if (dateControl) {
-      dateControl.value = "0001-01-01T08:30";
+      // Set the date to today and time to 08:30
+      const today = new Date();
+      today.setHours(8, 30, 0, 0);
+      const formattedDate = today.toISOString().slice(0, 16);
+      dateControl.value = formattedDate;
+
+      // Update the day display initially
+      updateDayDisplay(formattedDate);
 
       const handleChange = () => {
         const selectedDate = dateControl.value;
