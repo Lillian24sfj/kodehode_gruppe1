@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
 
 /**
- * Use "rating" to grab user input values
+ * WRITE DOCUMENTATION HERE!
  */
 
 const meta: Meta<typeof Button> = {
-  title: "Components/Rating",
+  title: "Components/Button",
   component: Button,
   tags: ["autodocs"],
 };

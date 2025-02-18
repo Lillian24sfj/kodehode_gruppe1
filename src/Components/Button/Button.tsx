@@ -1,10 +1,13 @@
 import style from "./Button.module.css"
 
+interface ButtonProps {
+    text: string,
+    onClick: () => void,
+    color: 'primary' | 'secondary' | 'tertiary',
+    size: number,
+    disabled: boolean,
+}
+
 export function Button() {
 
-    return (
-        <>
-        <div><h1 className={style.test}>TesTTTTTTT</h1></div>
-        </>
-    )
 }
