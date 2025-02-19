@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 .button_style {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
+    font-family: "Noto Sans", serif;
     padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 600;
-    transition: all 0.3s;
+    font-size: 1rem;
+    border-radius: 8px;
+    color: #f1f1f1;
+    border: none;
+    font-weight: 400;
+    background: #1e293b;
     cursor: pointer;
+    transition: all 0.3s ease;
   }
   
   .small {
@@ -21,23 +24,12 @@
   }
   
   .large {
-    padding: 14px 28px;
-    font-size: 18px;
+    padding: 15px 30px;
+    font-size: 24px;
   }
   
-  .primary {
-    background-color: #4f8a8b;
-    color: white;
-  }
-  
-  .secondary {
-    background-color: #757575;
-    color: white;
-  }
-  
-  .disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+  .hover:hover {
+    transform: scale(1.1);
   }
   
 
