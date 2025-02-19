@@ -1,6 +1,5 @@
-# Kodehode React Library
+# Unicorn Group React Library
 
-Contains components and hooks used for the [Jobloop] course [Kodehode].
+Contains components and hooks used and made by the Unicorn kodehode team.
 
-[Jobloop]: https://jobloop.no
-[Kodehode]: https://jobloop.no/kodehode
+Vercel deployment: [https://kodehode-gruppe1.vercel.app](https://kodehode-gruppe1.vercel.app)
