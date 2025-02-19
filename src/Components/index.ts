@@ -8,4 +8,5 @@ export * from "./SignatureLG";
 export * from "./SignatureTHT";
 export * from "./SearchComponent";
 export * from "./SignatureJohannes";
+export * from "./Button"
 
