@@ -15,7 +15,8 @@
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "storybook build",
+    "build": "storybook build --output-dir dist",
+    "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier ./src/**/*.{ts,tsx,css,mdx,md} --write",
     "test": "vitest",
