@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
 
 /**
- * A customizable button component with color, text color, border, and size options
+ * A customizable button component with color, text color, size options and hover effect options. 
  */
 
 const meta: Meta<typeof Button> = {
