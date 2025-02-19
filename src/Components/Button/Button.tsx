@@ -7,8 +7,6 @@ interface ButtonProps {
   textColor?: string;
   hoverEffect?: boolean,
   size?: "small" | "medium" | "large";
-  // border?: number;
-  // borderColor?: string;
 }
 
 export function Button({
@@ -18,8 +16,6 @@ export function Button({
   textColor = "#f1f1f1",
   hoverEffect = true,
   onClick,
-  // border = 0,
-  // borderColor = "transparent",
 }: ButtonProps) {
   const buttonClass = `${style.button_style} ${style[size]} ${hoverEffect ? style.hover : ""}`;
   return (
@@ -29,8 +25,6 @@ export function Button({
       style={{
         backgroundColor: color,
         color: textColor,
-        // border: `${border}px solid ${borderColor}`,
-        
       }}
     >
       {text}
