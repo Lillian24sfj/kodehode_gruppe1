@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 /** The component(s) that should be documented here */
 import { DateAndTime } from "./DateAndTime";
-
+import { useEffect } from "react"
 /**
  * Meta information about this page and how to render this component
  * can be configured here. Of note is the title it should be displayed under,
@@ -40,20 +40,30 @@ type Story = StoryObj<typeof meta>;
  *
  * More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
  */
-export const Default: Story = {
-  args: {
-    children: <p>Example child</p>,
-  },
+export const Default: Story = {};
+
+export const WithPresetDate: Story = {
+  decorators: [
+    (Story) => {
+      useEffect(() => {
+        const dateInput = document.querySelector('input[type="datetime-local"]') as HTMLInputElement;
+        if (dateInput) {
+          const presetDate = new Date('2024-02-20T10:30');
+          dateInput.value = presetDate.toISOString().slice(0, 16);
+          dateInput.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      }, []);
+      return <Story />;
+    },
+  ],
 };
 
-/**
- * The JSDoc comment tags (like this one), can
- * be used alongside the "autodoc" feature of
- * Storybook to automatically use these as documentation
- * for the rendered component.
- */
-export const LargeChildComponent: Story = {
-  args: {
-    
+export const InteractiveExample: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Try selecting a date and copying it to the clipboard.',
+      },
+    },
   },
 };
