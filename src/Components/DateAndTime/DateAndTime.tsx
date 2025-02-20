@@ -61,7 +61,9 @@ export function DateAndTime() {
         onChange={handleDateChange}
       />
       <button className={styles.DateAndTimeButton} onClick={handleCopyClick}>Copy Date</button>
-      {dayOfWeek && <p id="dayDisplay">This date is a {dayOfWeek}</p>}
+      {dayOfWeek && 
+      
+      <p id="dayDisplay">This date is a {dayOfWeek}</p>}
     </div>
   );
 }

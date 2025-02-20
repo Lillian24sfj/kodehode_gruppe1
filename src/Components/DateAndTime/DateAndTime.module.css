@@ -1,11 +1,28 @@
 .DateAndTimeContainer {
     font-size: large;
+       
+    
 }
 
 .DateAndTimeInput {
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border: solid black;
+    border-right: none;
+    background-color: lightblue;
+    
     
 }
 
 .DateAndTimeButton {
-
+    font-size: large;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border:solid black;
+    border-left: solid 1px gray;
+    background-color: lightblue;
+    
 }
