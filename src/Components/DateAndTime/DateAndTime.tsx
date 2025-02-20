@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
+import styles from "./DateAndTime.module.css";
 
 export function DateAndTime() {
   const dateControlRef = useRef<HTMLInputElement>(null);
   const [dayOfWeek, setDayOfWeek] = useState<string>('');
+  const [selectedDate, setSelectedDate] = useState<string>('');
 
   useEffect(() => {
     const dateControl = dateControlRef.current;
@@ -15,25 +17,30 @@ export function DateAndTime() {
 
       // Update the day display initially
       updateDayDisplay(formattedDate);
-
-      const handleChange = () => {
-        const selectedDate = dateControl.value;
-        navigator.clipboard.writeText(selectedDate).then(() => {
-          alert('Date and time copied to clipboard!');
-        }).catch(err => {
-          console.error('Unable to copy: ', err);
-        });
-        
-        updateDayDisplay(selectedDate);
-      };
-
-      dateControl.addEventListener('change', handleChange);
-
-      return () => {
-        dateControl.removeEventListener('change', handleChange);
-      };
+      setSelectedDate(formattedDate);
     }
   }, []);
+
+  const handleDateChange = () => {
+    const dateControl = dateControlRef.current;
+    if (dateControl) {
+      const newDate = dateControl.value;
+      setSelectedDate(newDate);
+      updateDayDisplay(newDate);
+    }
+  };
+
+  const handleCopyClick = () => {
+    if (selectedDate) {
+      navigator.clipboard.writeText(selectedDate).then(() => {
+        alert('Date and time copied to clipboard');
+      }).catch(err => {
+        console.error('Unable to copy: ', err);
+      });
+    } else {
+      alert('Please select a date first');
+    }
+  };
 
   function getDayOfWeek(dateString: string) {
     const date = new Date(dateString);
@@ -47,11 +54,13 @@ export function DateAndTime() {
   }
 
   return (
-    <div>
-      <input 
+    <div className={styles.DateAndTimeContainer}>
+      <input className={styles.DateAndTimeInput}
         type="datetime-local" 
         ref={dateControlRef}
+        onChange={handleDateChange}
       />
+      <button className={styles.DateAndTimeButton} onClick={handleCopyClick}>Copy Date</button>
       {dayOfWeek && <p id="dayDisplay">This date is a {dayOfWeek}</p>}
     </div>
   );
