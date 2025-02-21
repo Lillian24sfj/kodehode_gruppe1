@@ -1,0 +1,15 @@
+.panelContainer {
+  border: solid lightblue 2px;
+  border-radius: 15px;
+}
+
+.RxAvatar {
+  padding: 2px;
+  width: 36px;
+  height: auto;
+}
+
+.panelText {
+  padding-left: 4px;
+  padding-right: 4px;
+}
