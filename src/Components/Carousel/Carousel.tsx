@@ -20,48 +20,47 @@ export const Carousel = ({
 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const carouselInfiniteScroll = () => {
-    if (currentIndex === data.length - 1) {
-      return setCurrentIndex(0);
-    }
-    return setCurrentIndex(currentIndex + 1);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
   };
 
-  //How long should each Item be viewed
   useEffect(() => {
-    if (!isPaused) {
-      const intervalId = setInterval(carouselInfiniteScroll, interval);
-      return () => clearInterval(intervalId);
+    if (!isPaused && data.length > 1) {
+      const timer = setInterval(nextSlide, interval);
+      return () => clearInterval(timer);
     }
-  }, [currentIndex, data.length, interval, isPaused]);
+  }, [isPaused, data.length, interval]);
 
   const handleMouseEnter = () => setIsPaused(true);
   const handleMouseLeave = () => setIsPaused(false);
 
   const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? data.length - 1 : prevIndex - 1,
-    );
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + data.length) % data.length);
   };
 
-  const handleNextClick = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === data.length - 1 ? 0 : prevIndex + 1,
-    );
-  };
+  const handleNextClick = nextSlide;
+
+  if (data.length === 0) {
+    return <div>No items to display</div>;
+  }
 
   return (
-    <div className={styles.carousel_container} style={itemSize}>
-      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div
+      className={styles.carousel_container}
+      style={itemSize}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div
+        className={styles.carousel_track}
+        style={{
+          transform: `translateX(-${currentIndex * 100}%)`,
+          width: `${data.length * 100}%`,
+        }}
+      >
         {data.map((item, index) => (
-          <div
-            key={index}
-            className={styles.carousel_item}
-            style={{
-              transform: `translateX(-${currentIndex * 100}%)`,
-              transition: "transform 0.5s ease",
-            }}
-          >
+          <div key={index} className={styles.carousel_item}>
             {item.type === "image" ? (
               <img
                 src={item.content}
@@ -70,19 +69,23 @@ export const Carousel = ({
               />
             ) : (
               <div style={itemSize}>
-                <h3 className={styles.h3}>{item.content}</h3>
+                <h3>{item.content}</h3>
               </div>
             )}
             {item.caption && <p className={styles.caption}>{item.caption}</p>}
           </div>
         ))}
       </div>
-      <button onClick={handlePrevClick} className={styles.prev_button}>
-        ←
-      </button>
-      <button onClick={handleNextClick} className={styles.next_button}>
-        →
-      </button>
+      {data.length > 1 && (
+        <>
+          <button onClick={handlePrevClick} className={styles.prev_button}>
+            ←
+          </button>
+          <button onClick={handleNextClick} className={styles.next_button}>
+            →
+          </button>
+        </>
+      )}
     </div>
   );
 };
