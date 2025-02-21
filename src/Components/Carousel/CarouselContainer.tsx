@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Carousel } from "./Carousel";
+import { Carousel, CarouselItem } from "./Carousel";
 import { fetchCarouselData } from "./carouselDataService";
-import { CarouselItem } from "./Carousel";
 
 export const CarouselContainer: React.FC = () => {
   const [carouselData, setCarouselData] = useState<CarouselItem[]>([]);
