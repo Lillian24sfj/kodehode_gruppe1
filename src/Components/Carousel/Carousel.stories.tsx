@@ -1,55 +1,88 @@
-/**
- * In this file you specify how to render the component inside storybook.
- * There is some boilerplate setup required to configure rendering and such.
- * Just copy these over from an existing story.
- */
 import type { Meta, StoryObj } from "@storybook/react";
+import { Carousel, CarouselItem } from "./Carousel";
+import { CarouselContainer } from "./CarouselContainer";
+import { fetchCarouselData } from "./carouselDataService";
 
-/** The component(s) that should be documented here */
-import { Carousel } from "./Carousel";
-
-/**
- * Meta information about this page and how to render this component
- * can be configured here. Of note is the title it should be displayed under,
- * along with any organizational structures like root directory.
- *
- * More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
- */
 const meta = {
   title: "Components/Carousel",
   component: Carousel,
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {},
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: {},
+  argTypes: {
+    interval: { control: "number" },
+    itemSize: { control: "object" },
+  },
 } satisfies Meta<typeof Carousel>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Carousel>;
 
-/**
- * Her starts the variations you want story book
- * to display as documentation. Each export
- * becomes one displayed item.
- *
- * More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
- */
+const mockCarouselItems: CarouselItem[] = [
+  {
+    type: "text" as const,
+    content: "First Card",
+    caption: "Description for the first card",
+  },
+  {
+    type: "text" as const,
+    content: "Second Card",
+    caption: "Description for the second card",
+  },
+  {
+    type: "image" as const,
+    content: "https://picsum.photos/id/1018/1000/600/",
+    caption: "Sample Image 1",
+  },
+  {
+    type: "image" as const,
+    content: "https://picsum.photos/id/1015/1000/600/",
+    caption: "Sample Image 2",
+  },
+];
+
 export const Default: Story = {
-  args: {},
-};
-export const CustomData: Story = {
   args: {
-    data: ["A", "B", "C", "D", "E"],
+    data: mockCarouselItems,
+    interval: 3000,
+    itemSize: { width: "100%", height: "300px" },
   },
 };
+
 export const SlowerInterval: Story = {
   args: {
+    ...Default.args,
     interval: 5000,
+  },
+};
+
+export const CustomSize: Story = {
+  args: {
+    ...Default.args,
+    itemSize: { width: "500px", height: "200px" },
+  },
+};
+
+export const WithDataFetching: Story = {
+  loaders: [
+    async () => ({
+      carouselData: mockCarouselItems,
+    }),
+  ],
+  render: (args, { loaded: { carouselData } }) => (
+    <Carousel {...args} data={carouselData} />
+  ),
+};
+
+export const EmptyCarousel: Story = {
+  args: {
+    data: [],
+  },
+};
+
+export const SingleItem: Story = {
+  args: {
+    data: [mockCarouselItems[0]],
   },
 };
