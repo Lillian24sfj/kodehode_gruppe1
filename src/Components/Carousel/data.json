@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "id": "uuid1",
+      "title": "First Card",
+      "description": "Description for the first card"
+    },
+    {
+      "id": "uuid2",
+      "title": "Second Card",
+      "description": "Description for the second card"
+    },
+    {
+      "id": "uuid3",
+      "title": "Third Card",
+      "description": "Description for the third card"
+    },
+    {
+      "id": "uuid4",
+      "title": "Fourth Card",
+      "description": "Description for the fourth card"
+    }
+  ]
+}
