@@ -1,0 +1,46 @@
+/* Base styles for ReadMore component */
+.readmore {
+  background-color: white;
+  border-radius: 0.375rem; /* Rounded-lg */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow-md */
+  padding: 1rem; /* P-4 */
+}
+
+/* Header Styles */
+.readmore-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Styles for the button that toggles the visibility of the content */
+.readmore-header button {
+  padding: 0.5rem 1rem; /* Px-4 py-2 */
+  background-color: #3b82f6; /* Bg-blue-500 */
+  color: white;
+  border-radius: 0.375rem; /* Rounded */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Button hover styles */
+.readmore-header button:hover {
+  background-color: #2563eb; /* Hover: bg-blue-600 */
+}
+
+/* Button focus styles */
+.readmore-header button:focus {
+  outline: none;
+}
+
+/* Header text styles */
+.readmore-header h3 {
+  font-size: 1.125rem; /* Text-lg */
+  font-weight: 600; /* Font-semibold */
+}
+
+/* Content Styles */
+.readmore-content {
+  margin-top: 1rem; /* Mt-4 */
+  color: #4b5563; /* Text-gray-700 */
+}
