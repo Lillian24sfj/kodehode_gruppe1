@@ -1,55 +1,53 @@
-import React, { useState } from "react";
+import { useState } from "react"; // Import useState from React
 import styles from "./ReadMore.module.css"; // Import the custom CSS
 
 /**
- * This is the description of what properties
- * the ReadMore component accepts, and whether they are
- * required or optional.
+ * The properties that the ReadMore component accepts.
+ * - header: A React node that serves as the header of the component.
+ * - children: The content to be shown or hidden when toggled.
  */
 export interface ReadMoreProps {
+  /**
+   * The header for the ReadMore component.
+   * This is usually the title or label for the content being toggled.
+   */
   header: React.ReactNode;
+
+  /**
+   * The content that can be toggled open or closed.
+   * This content is displayed when the component is in an open state.
+   */
   children: React.ReactNode;
-  defaultOpen?: boolean;
-  open?: boolean;
-  onOpenChange?: (open: boolean) => void;
-  size?: "small" | "medium" | "large";
 }
 
 /**
- * ReadMore component that displays a header, content that can be toggled,
- * and provides different sizes for display. The content can be toggled open or closed.
+ * The ReadMore component displays a header and toggleable content.
+ * The content can be shown or hidden based on user interaction.
  */
-export const ReadMore: React.FC<ReadMoreProps> = ({
-  header,
-  children,
-  defaultOpen = false,
-  open: controlledOpen,
-  onOpenChange,
-  size = "medium",
-}) => {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
-  const open = controlledOpen !== undefined ? controlledOpen : isOpen;
+export function ReadMore({ header, children }: ReadMoreProps) {
+  const [isOpen, setIsOpen] = useState(false); // Default to closed state
 
   /**
-   * Toggle the open state of the ReadMore component.
-   * Calls the onOpenChange prop if provided to notify of the state change.
+   * Toggles the open/closed state of the component.
+   * This changes the visibility of the content.
    */
   const toggleOpen = () => {
-    if (onOpenChange) {
-      onOpenChange(!open);
-    }
-    setIsOpen(!open);
+    setIsOpen((prevState) => !prevState); // Toggle state between true and false
   };
 
   return (
-    <div className={`${styles.readmore} ${styles[`readmore-${size}`]}`}>
-      {" "}
-      {/* Use styles as classes */}
+    <div className={styles.readmore}>
       <div className={styles["readmore-header"]}>
-        <button onClick={toggleOpen}>{open ? "Show less" : "Read more"}</button>
-        <h3>{header}</h3>
+        <button onClick={toggleOpen}>
+          {isOpen ? "Show less" : "Read more"} {/* Toggle button text */}
+        </button>
+        <h3>{header}</h3> {/* Header text */}
       </div>
-      {open && <div className={styles["readmore-content"]}>{children}</div>}
+      {isOpen && (
+        <div className={styles["readmore-content"]}>
+          {children} {/* Content that will be displayed when open */}
+        </div>
+      )}
     </div>
   );
-};
+}
