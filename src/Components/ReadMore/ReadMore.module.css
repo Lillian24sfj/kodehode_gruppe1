@@ -1,0 +1,58 @@
+/* Base styles for ReadMore component */
+.readmore {
+  background-color: white;
+  border-radius: 0.375rem; /* Rounded-lg */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow-md */
+  padding: 1rem; /* P-4 */
+  max-width: 600px; /* Optional: limit the width for better readability */
+  margin: 0 auto; /* Optional: center the component horizontally */
+}
+
+/* Header Styles */
+.readmore-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb; /* Optional: add a subtle separator line */
+  padding-bottom: 0.5rem; /* Space below header */
+  margin-bottom: 1rem; /* Space between header and content */
+}
+
+/* Styles for the button that toggles the visibility of the content */
+.readmore-header button {
+  padding: 0.5rem 1rem; /* Px-4 py-2 */
+  background-color: #3b82f6; /* Bg-blue-500 */
+  color: white;
+  border-radius: 0.375rem; /* Rounded */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1rem; /* Font size for better button legibility */
+  font-weight: 500; /* Medium weight for the button text */
+}
+
+/* Button hover styles */
+.readmore-header button:hover {
+  background-color: #2563eb; /* Hover: bg-blue-600 */
+}
+
+/* Button focus styles */
+.readmore-header button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* Subtle blue focus ring */
+}
+
+/* Header text styles */
+.readmore-header h3 {
+  font-size: 1.125rem; /* Text-lg */
+  font-weight: 600; /* Font-semibold */
+  color: #111827; /* Darker text for header for better readability */
+  margin: 0; /* Remove any default margins for the header */
+}
+
+/* Content Styles */
+.readmore-content {
+  margin-top: 1rem; /* Mt-4 */
+  color: #4b5563; /* Text-gray-700 */
+  font-size: 1rem; /* Default text size */
+  line-height: 1.6; /* Increase line height for better readability */
+}
