@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 /** The component(s) that should be documented here */
-import { SignatureJohannes } from "./signatureJohannes";
+import { Skeleton } from "./Skeleton";
 
 /**
  * Meta information about this page and how to render this component
@@ -16,8 +16,8 @@ import { SignatureJohannes } from "./signatureJohannes";
  * More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
  */
 const meta = {
-  title: "Components/SignatureJohannes",
-  component: SignatureJohannes,
+  title: "Components/Skelton",
+  component: Skeleton,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -28,7 +28,7 @@ const meta = {
   argTypes: {},
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {},
-} satisfies Meta<typeof SignatureJohannes>;
+} satisfies Meta<typeof Skeleton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -42,23 +42,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {
-    children: <p>Example child</p>,
+
   },
 };
 
-/**
- * The JSDoc comment tags (like this one), can
- * be used alongside the "autodoc" feature of
- * Storybook to automatically use these as documentation
- * for the rendered component.
- */
-export const LargeChildComponent: Story = {
-  args: {
-    children: (
-      <div>
-        <p>A more complex child component!</p>
-        <p>Now with multiple lines!</p>
-      </div>
-    ),
-  },
-};
