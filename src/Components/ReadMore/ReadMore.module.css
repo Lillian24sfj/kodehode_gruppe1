@@ -47,6 +47,7 @@
   font-weight: 600; /* Font-semibold */
   color: #111827; /* Darker text for header for better readability */
   margin: 0; /* Remove any default margins for the header */
+  margin-left: 16px;
 }
 
 /* Content Styles */
