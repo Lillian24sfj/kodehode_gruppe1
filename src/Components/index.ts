@@ -6,4 +6,4 @@ export * from "./PokemonDetails";
 export * from "./SignatureLG"
 export * from "./SignatureTHT"
 export * from "./SignatureJohannes"
-export * from "./SignatureVR"
+export * from "./SignatureVR";
