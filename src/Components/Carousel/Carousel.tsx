@@ -1,11 +1,14 @@
 import styles from "./Carousel.module.css";
 import { useState, useEffect } from "react";
-import imageData from "./src/Components/Carousel/data.json";
 
 export interface CarouselItem {
   type: "image" | "text";
   content: string;
   caption?: string;
+  src?: string;
+  alt?: string;
+  title?: string;
+  description?: string;
 }
 
 interface CarouselProps {
@@ -21,11 +24,13 @@ export const Carousel = ({
 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const { images } = imageData;
+
+  const handlePrevClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + data.length) % data.length);
+  };
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   useEffect(() => {
@@ -38,13 +43,6 @@ export const Carousel = ({
   const handleMouseEnter = () => setIsPaused(true);
   const handleMouseLeave = () => setIsPaused(false);
 
-  const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + data.length) % data.length);
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length,
-    );
-  };
-
   const handleNextClick = nextSlide;
 
   if (data.length === 0) {
@@ -56,48 +54,27 @@ export const Carousel = ({
   return (
     <div
       className={styles.carousel_container}
-      style={itemSize}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div
-        className={styles.carousel_track}
-        style={{
-          transform: `translateX(-${currentIndex * 100}%)`,
-          width: `${data.length * 100}%`,
-        }}
-      >
-        {data &&
-          data.length > 0 &&
-          data.map((item, index) => (
-            <div key={index} className={styles.carousel_item}>
-              {item.type === "image" ? (
-                <img
-                  src={images[currentIndex].src}
-                  alt={images[currentIndex].alt}
-                  style={itemSize}
-                />
-              ) : (
-                <div style={itemSize}>
-                  <h3>{item.content}</h3>
-                  {item.caption && (
-                    <p className={styles.caption}>{item.caption}</p>
-                  )}
-                </div>
-              )}
-            </div>
-          ))}
-      </div>
-      {data.length > 1 && (
-        <>
-          <button onClick={handlePrevClick} className={styles.prev_button}>
-            ←
-          </button>
-          <button onClick={handleNextClick} className={styles.next_button}>
-            →
-          </button>
-        </>
+      {data[currentIndex].type === "image" ? (
+        <img
+          src={data[currentIndex].src}
+          alt={data[currentIndex].alt}
+          style={itemSize}
+        />
+      ) : (
+        <div className={styles.carousel_track} style={itemSize}>
+          <h3>{data[currentIndex].title}</h3>
+          <p>{data[currentIndex].description}</p>
+        </div>
       )}
+      <button onClick={handlePrevClick} className={styles.prev_button}>
+        ←
+      </button>
+      <button onClick={handleNextClick} className={styles.next_button}>
+        →
+      </button>
     </div>
   );
 };
