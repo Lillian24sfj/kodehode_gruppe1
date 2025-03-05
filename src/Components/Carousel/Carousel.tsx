@@ -1,5 +1,6 @@
 import styles from "./Carousel.module.css";
 import { useState, useEffect } from "react";
+import imageData from "./src/Components/Carousel/data.json";
 
 export interface CarouselItem {
   type: "image" | "text";
@@ -20,9 +21,11 @@ export const Carousel = ({
 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const { images } = imageData;
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   useEffect(() => {
@@ -37,6 +40,9 @@ export const Carousel = ({
 
   const handlePrevClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + data.length) % data.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length,
+    );
   };
 
   const handleNextClick = nextSlide;
@@ -44,6 +50,8 @@ export const Carousel = ({
   if (data.length === 0) {
     return <div>No items to display</div>;
   }
+
+  console.log("Carousel data:", data);
 
   return (
     <div
@@ -59,22 +67,26 @@ export const Carousel = ({
           width: `${data.length * 100}%`,
         }}
       >
-        {data.map((item, index) => (
-          <div key={index} className={styles.carousel_item}>
-            {item.type === "image" ? (
-              <img
-                src={item.content}
-                alt={item.caption || ""}
-                style={itemSize}
-              />
-            ) : (
-              <div style={itemSize}>
-                <h3>{item.content}</h3>
-              </div>
-            )}
-            {item.caption && <p className={styles.caption}>{item.caption}</p>}
-          </div>
-        ))}
+        {data &&
+          data.length > 0 &&
+          data.map((item, index) => (
+            <div key={index} className={styles.carousel_item}>
+              {item.type === "image" ? (
+                <img
+                  src={images[currentIndex].src}
+                  alt={images[currentIndex].alt}
+                  style={itemSize}
+                />
+              ) : (
+                <div style={itemSize}>
+                  <h3>{item.content}</h3>
+                  {item.caption && (
+                    <p className={styles.caption}>{item.caption}</p>
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
       </div>
       {data.length > 1 && (
         <>

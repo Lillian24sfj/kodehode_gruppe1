@@ -2,6 +2,8 @@
   position: relative;
   background: #f1f1f1;
   overflow: hidden;
+  display: flex;
+  flex: fit-content;
 }
 
 .carousel_track {
@@ -15,6 +17,11 @@
   width: 100%;
   padding: 0 30px;
   box-sizing: border-box;
+}
+
+.caption {
+  display: flex;
+  flex: fit-content;
 }
 
 .prev_button {

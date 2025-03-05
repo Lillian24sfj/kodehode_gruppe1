@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Carousel, CarouselItem } from "./Carousel";
+import { Carousel } from "./Carousel";
+import { fetchCarouselData } from "./carouselDataService";
 
 const meta = {
   title: "Components/Carousel",
   component: Carousel,
   parameters: {
     layout: "centered",
+    docs: {},
   },
   tags: ["autodocs"],
   argTypes: {
@@ -17,35 +19,15 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Carousel>;
 
-const mockCarouselItems: CarouselItem[] = [
-  {
-    type: "text" as const,
-    content: "First Card",
-    caption: "Description for the first card",
-  },
-  {
-    type: "text" as const,
-    content: "Second Card",
-    caption: "Description for the second card",
-  },
-  {
-    type: "image" as const,
-    content: "https://picsum.photos/id/1018/1000/600/",
-    caption: "Sample Image 1",
-  },
-  {
-    type: "image" as const,
-    content: "https://picsum.photos/id/1015/1000/600/",
-    caption: "Sample Image 2",
-  },
-];
-
 export const Default: Story = {
-  args: {
-    data: mockCarouselItems,
-    interval: 3000,
-    itemSize: { width: "100%", height: "300px" },
-  },
+  loaders: [
+    async () => ({
+      carouselData: await fetchCarouselData(),
+    }),
+  ],
+  render: (args, { loaded: { carouselData } }) => (
+    <Carousel {...args} data={carouselData} />
+  ),
 };
 
 export const SlowerInterval: Story = {
@@ -65,7 +47,7 @@ export const CustomSize: Story = {
 export const WithDataFetching: Story = {
   loaders: [
     async () => ({
-      carouselData: mockCarouselItems,
+      carouselData: await fetchCarouselData(),
     }),
   ],
   render: (args, { loaded: { carouselData } }) => (
@@ -73,14 +55,26 @@ export const WithDataFetching: Story = {
   ),
 };
 
-export const EmptyCarousel: Story = {
-  args: {
-    data: [],
+export const SingleItem: Story = {
+  loaders: [
+    async () => {
+      const items = await fetchCarouselData();
+      return { singleItem: items[0] || null };
+    },
+  ],
+  render: (args, { loaded: { singleItem } }) => {
+    if (!singleItem) {
+      return <div>Failed to load item</div>;
+    }
+    return <Carousel {...args} data={[singleItem]} />;
   },
 };
 
-export const SingleItem: Story = {
-  args: {
-    data: [mockCarouselItems[0]],
-  },
+export const EmptyCarousel: Story = {
+  loaders: [
+    async () => ({ carouselData: [] }), //simulate empty data
+  ],
+  render: (args, { loaded: { carouselData } }) => (
+    <Carousel {...args} data={carouselData} />
+  ),
 };
