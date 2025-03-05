@@ -12,7 +12,7 @@ interface RawCarouselData {
 
 export async function fetchCarouselData(): Promise<CarouselItem[]> {
   try {
-    const response = await fetch("./data.json");
+    const response = await fetch("/src/Components/Carousel/data.json");
     if (!response.ok) {
       throw new Error("Failed to fetch carousel data");
     }
