@@ -2,12 +2,15 @@ import { CarouselItem } from "./Carousel";
 
 interface RawCarouselItem {
   id: string;
-  title: string;
-  description: string;
+  type: "text" | "image";
+  title?: string;
+  description?: string;
+  src?: string;
+  alt?: string;
 }
 
 interface RawCarouselData {
-  items: RawCarouselItem[];
+  slides: RawCarouselItem[];
 }
 
 export async function fetchCarouselData(): Promise<CarouselItem[]> {
@@ -17,11 +20,32 @@ export async function fetchCarouselData(): Promise<CarouselItem[]> {
       throw new Error("Failed to fetch carousel data");
     }
     const rawData: RawCarouselData = await response.json();
-    return rawData.items.map((item) => ({
-      type: "text",
-      content: item.title,
-      caption: item.description,
-    }));
+    if (!rawData.slides || !Array.isArray(rawData.slides)) {
+      throw new Error("Failed to fetch carousel data");
+    }
+
+    return rawData.slides
+      .map((item: RawCarouselItem) => {
+        if (item.type === "text") {
+          return {
+            type: "text",
+            content: item.title || "",
+            caption: item.description || "",
+            id: item.id, // Add the id
+          };
+        } else if (item.type === "image") {
+          return {
+            type: "image",
+            src: item.src || "",
+            alt: item.alt || "",
+            id: item.id, // Add the id
+          };
+        } else {
+          console.warn("Unknown item type:", item);
+          return null; // Or a default item
+        }
+      })
+      .filter((item) => item !== null) as CarouselItem[]; // Filter out null items
   } catch (error) {
     console.error("Error fetching carousel data:", error);
     return [];
