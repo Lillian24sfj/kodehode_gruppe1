@@ -73,7 +73,7 @@ export const Carousel = ({
           <>
             {data[currentIndex].title && <h3>{data[currentIndex].title}</h3>}
             <p>
-              {data[currentIndex].content || data[currentIndex].description}
+              {data[currentIndex].description || data[currentIndex].content}
             </p>
           </>
         )}

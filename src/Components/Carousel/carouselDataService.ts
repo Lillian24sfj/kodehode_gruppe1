@@ -30,8 +30,9 @@ export async function fetchCarouselData(): Promise<CarouselItem[]> {
         if (item.type === "text") {
           return {
             type: "text",
-            content: item.title || "",
-            caption: item.description || "",
+            title: item.title || "",
+            content: item.content || "",
+            description: item.description || "",
             id: item.id, // Add the id
           };
         } else if (item.type === "image") {
@@ -39,6 +40,7 @@ export async function fetchCarouselData(): Promise<CarouselItem[]> {
             type: "image",
             src: item.src || "",
             alt: item.alt || "",
+            caption: item.caption | "",
             id: item.id, // Add the id
           };
         } else {
