@@ -49,7 +49,7 @@ export const Carousel = ({
     return <div>No items to display</div>;
   }
 
-  console.log("Carousel data:", data);
+  console.log("Current item:", data[currentIndex]);
 
   return (
     <div
@@ -57,18 +57,27 @@ export const Carousel = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {data[currentIndex].type === "image" ? (
-        <img
-          src={data[currentIndex].src}
-          alt={data[currentIndex].alt}
-          style={itemSize}
-        />
-      ) : (
-        <div className={styles.carousel_track} style={itemSize}>
-          <h3>{data[currentIndex].title}</h3>
-          <p>{data[currentIndex].description}</p>
-        </div>
-      )}
+      <div className={styles.carousel_track} style={itemSize}>
+        {data[currentIndex].type === "image" ? (
+          <>
+            <img
+              src={data[currentIndex].src}
+              alt={data[currentIndex].alt}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+            {data[currentIndex].caption && (
+              <div className={styles.caption}>{data[currentIndex].caption}</div>
+            )}
+          </>
+        ) : (
+          <>
+            {data[currentIndex].title && <h3>{data[currentIndex].title}</h3>}
+            <p>
+              {data[currentIndex].content || data[currentIndex].description}
+            </p>
+          </>
+        )}
+      </div>
       <button onClick={handlePrevClick} className={styles.prev_button}>
         ←
       </button>

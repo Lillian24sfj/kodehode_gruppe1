@@ -1,12 +1,13 @@
 import { CarouselItem } from "./Carousel";
 
 interface RawCarouselItem {
-  id: string;
-  type: "text" | "image";
+  id?: string;
+  type?: "text" | "image";
   title?: string;
   description?: string;
   src?: string;
   alt?: string;
+  caption?: string;
 }
 
 interface RawCarouselData {
