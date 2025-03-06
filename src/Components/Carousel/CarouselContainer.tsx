@@ -14,7 +14,7 @@ export const CarouselContainer: React.FC = () => {
         const data = await fetchCarouselData();
         setCarouselData(data);
         setError(null);
-      } catch (err) {
+      } catch (error) {
         setError("Failed to load carousel data");
       } finally {
         setIsLoading(false);
