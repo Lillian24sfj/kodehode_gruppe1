@@ -31,7 +31,7 @@ export const CarouselContainer: React.FC = () => {
     <Carousel
       data={carouselData}
       interval={5000}
-      itemSize={{ width: "100%", height: "400px" }}
+      itemSize={{ width: "100%", height: "600px" }}
     />
   );
 };
