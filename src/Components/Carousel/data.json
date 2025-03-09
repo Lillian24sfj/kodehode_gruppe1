@@ -11,14 +11,18 @@
       "type": "image",
       "src": "https://images.pexels.com/photos/30234207/pexels-photo-30234207/free-photo-of-minimalistisk-stue-med-katt-og-abstrakt-kunst.jpeg",
       "alt": "cat",
-      "caption": "A cat in a minimalistic living room"
+      "caption": "A cat in a minimalistic living room",
+      "width": "300",
+      "height": "450"
     },
     {
       "id": "img2",
       "type": "image",
       "src": "https://images.pexels.com/photos/30958703/pexels-photo-30958703/free-photo-of-close-up-of-a-sand-crab-at-ilhabela-beach.jpeg",
       "alt": "Description for the third card",
-      "caption": "Another image description"
+      "caption": "Another image description",
+      "width": "480",
+      "height": "270"
     },
     {
       "id": "uuid102",
