@@ -57,14 +57,17 @@ export const Carousel = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className={styles.carousel_track} style={itemSize}>
+      <div
+        className={styles.carousel_track}
+        // style={itemSize}
+      >
         <div className={styles.carousel_item}>
           {data[currentIndex].type === "image" ? (
             <>
               <img
                 src={data[currentIndex].src}
                 alt={data[currentIndex].alt}
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                // atyle={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
               {data[currentIndex].caption && (
                 <div className={styles.caption}>
