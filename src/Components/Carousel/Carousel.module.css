@@ -1,8 +1,11 @@
 .carousel_container {
   position: relative;
-  background: #f1f1f1;
   width: 800px;
   height: 500px;
+
+  background: #f1f1f1;
+  /* darkmode(suggestion): */
+  /* background: #333333; */
 }
 
 .carousel_track {
@@ -25,13 +28,6 @@
   object-fit: contain;
 }
 
-.caption {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 10px;
-}
-
 .prev_button {
   left: 0;
 }
@@ -47,8 +43,6 @@
   top: 0;
   bottom: 0;
   width: 30px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: burlywood;
   font-size: 24px;
   cursor: pointer;
   border: none;
@@ -57,6 +51,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* lightmode */
+  background-color: rgba(0, 0, 0, 0.8);
+  color: burlywood;
+
+  /* darkmode */
+  /* background-color: rgba(255, 255, 255, 0.2);
+    color: #ffdab5; */
 }
 
 .prev_button:hover,
