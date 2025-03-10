@@ -2,13 +2,16 @@ import { CarouselItem } from "./Carousel";
 
 interface RawCarouselItem {
   id?: string;
-  type?: "text" | "image";
-  title?: string;
-  description?: string;
+  /**Supported types is image, or text, this is set in the data.json */
+  type: "text" | "image";
+  /** src and alt is manditory for images, caption is optional(delete the category from the json to hide) */
   src?: string;
   alt?: string;
   caption?: string;
+  /** Title, and description is optional, content is manditory for text */
+  title?: string;
   content?: string;
+  description?: string;
 }
 
 interface RawCarouselData {

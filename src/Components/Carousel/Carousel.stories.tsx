@@ -2,6 +2,14 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Carousel } from "./Carousel";
 import { fetchCarouselData } from "./carouselDataService";
 
+/**This carousel supports images with and without captions, it can also display text
+ * json example:
+ * "id": "uuid101",
+      "type": "text",
+      "title": "First Card",
+      "content": "Far far away, behind the word mountains....
+ */
+
 const meta = {
   title: "Components/Carousel",
   component: Carousel,
@@ -30,19 +38,9 @@ export const Default: Story = {
   ),
 };
 
-export const SlowerInterval: Story = {
-  args: {
-    ...Default.args,
-    interval: 5000,
-  },
-};
-
-export const CustomSize: Story = {
-  args: {
-    ...Default.args,
-    itemSize: { width: "500px", height: "200px" },
-  },
-};
+/**
+ * Can fetch data from external sources
+ */
 
 export const WithDataFetching: Story = {
   loaders: [
@@ -54,7 +52,9 @@ export const WithDataFetching: Story = {
     <Carousel {...args} data={carouselData} />
   ),
 };
-
+/**
+ * How it looks with one item
+ */
 export const SingleItem: Story = {
   loaders: [
     async () => {
@@ -70,6 +70,9 @@ export const SingleItem: Story = {
   },
 };
 
+/**
+ * When there is no items:
+ */
 export const EmptyCarousel: Story = {
   loaders: [
     async () => ({ carouselData: [] }), //simulate empty data
