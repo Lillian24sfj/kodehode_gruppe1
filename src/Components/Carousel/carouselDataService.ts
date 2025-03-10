@@ -9,8 +9,6 @@ interface RawCarouselItem {
   alt?: string;
   caption?: string;
   content?: string;
-  height?: number;
-  width?: number;
 }
 
 interface RawCarouselData {
@@ -45,8 +43,6 @@ export async function fetchCarouselData(): Promise<CarouselItem[]> {
             alt: item.alt || "",
             caption: item.caption || "",
             id: item.id, // Add the id
-            width: item.width || "",
-            height: item.height || "",
           };
         } else {
           console.warn("Unknown item type:", item);
