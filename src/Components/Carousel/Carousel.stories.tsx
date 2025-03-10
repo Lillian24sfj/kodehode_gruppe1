@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Carousel } from "./Carousel";
 import { fetchCarouselData } from "./carouselDataService";
 
-/**This carousel supports images with and without captions, it can also display text
- * json example:
- * "id": "uuid101",
-      "type": "text",
-      "title": "First Card",
+/**This carousel supports images with and without captions, it can also display text<br>
+ * Json example:<br>
+ * "id": "uuid101",<br>
+      "type": "text",<br>
+      "title": "First Card",<br>
       "content": "Far far away, behind the word mountains....
  */
 
