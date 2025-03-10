@@ -64,11 +64,7 @@ export const Carousel = ({
         <div className={styles.carousel_item}>
           {data[currentIndex].type === "image" ? (
             <>
-              <img
-                src={data[currentIndex].src}
-                alt={data[currentIndex].alt}
-                // atyle={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
+              <img src={data[currentIndex].src} alt={data[currentIndex].alt} />
               {data[currentIndex].caption && (
                 <div className={styles.caption}>
                   {data[currentIndex].caption}
