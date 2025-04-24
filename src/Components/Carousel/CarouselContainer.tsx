@@ -11,11 +11,15 @@ export const CarouselContainer: React.FC = () => {
     const loadCarouselData = async () => {
       try {
         setIsLoading(true);
-        const data = await fetchCarouselData();
+        const data: CarouselItem[] = await fetchCarouselData();
         setCarouselData(data);
         setError(null);
-      } catch (error) {
-        setError("Failed to load carousel data");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Failed to load carousel data");
+        }
       } finally {
         setIsLoading(false);
       }

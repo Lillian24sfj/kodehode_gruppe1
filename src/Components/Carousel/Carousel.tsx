@@ -49,23 +49,21 @@ export const Carousel = ({
     return <div>No items to display</div>;
   }
 
-  console.log("Current item:", data[currentIndex]);
-
   return (
     <div
       className={styles.carousel_container}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div
-        className={styles.carousel_track}
-        // style={itemSize}
-      >
+      <div className={styles.carousel_track} style={itemSize}>
         <div className={styles.carousel_item}>
-          {data[currentIndex].type === "image" ? (
+          {data[currentIndex]?.type === "image" ? (
             <>
-              <img src={data[currentIndex].src} alt={data[currentIndex].alt} />
-              {data[currentIndex].caption && (
+              <img
+                src={data[currentIndex]?.src}
+                alt={data[currentIndex]?.alt || "carousel image"}
+              />
+              {data[currentIndex]?.caption && (
                 <div className={styles.caption}>
                   {data[currentIndex].caption}
                 </div>
@@ -73,9 +71,9 @@ export const Carousel = ({
             </>
           ) : (
             <>
-              {data[currentIndex].title && <h3>{data[currentIndex].title}</h3>}
+              {data[currentIndex]?.title && <h3>{data[currentIndex].title}</h3>}
               <p>
-                {data[currentIndex].description || data[currentIndex].content}
+                {data[currentIndex]?.description || data[currentIndex]?.content}
               </p>
             </>
           )}
