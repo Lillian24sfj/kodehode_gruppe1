@@ -15,3 +15,4 @@ export * from "./SearchComponent";
 export * from "./SignatureJohannes";
 export * from "./ReadMore";
 export * from "./Button";
+export * from "./Carousel/Carousel";

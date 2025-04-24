@@ -1,0 +1,29 @@
+{
+  "slides": [
+    {
+      "id": "uuid101",
+      "type": "text",
+      "title": "First Card",
+      "content": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then"
+    },
+    {
+      "id": "img1",
+      "type": "image",
+      "src": "https://images.pexels.com/photos/30234207/pexels-photo-30234207/free-photo-of-minimalistisk-stue-med-katt-og-abstrakt-kunst.jpeg",
+      "alt": "cat"
+    },
+    {
+      "id": "img2",
+      "type": "image",
+      "src": "https://images.pexels.com/photos/30958703/pexels-photo-30958703/free-photo-of-close-up-of-a-sand-crab-at-ilhabela-beach.jpeg",
+      "alt": "crab on a beach",
+      "caption": "Here you can put your caption"
+    },
+    {
+      "id": "uuid102",
+      "type": "text",
+      "title": "Fourth Card",
+      "content": "In the village of Snifflefjord, a shaggy dog named King Snorri ruled the Vikings. Snorri had a powerful nose that could sniff out treasure and lies. The villagers worshipped rotten fruit gods: Moldy Melon for wisdom, Squishy Apple for war, and Fermented Banana for mischief. One day, King Snorri sniffed something foul and barked for an emergency meeting. Moldy Melon was missing! Bjorn Barkbeard, a brave Viking, led a quest to find him. They crossed the Swamp of Eternal Flatulence and climbed the Cliff of Clingy Seagulls to reach the Cave of Questionable Odors. Inside, they found Fermented Banana holding Moldy Melon captive. \"Release him!\" Bjorn demanded. Fermented Banana laughed, but King Snorri had a plan. He rolled in honey and charged, forcing Fermented Banana to surrender. Moldy Melon was freed, and Fermented Banana was sentenced to organizing fruit fly festivals. King Snorri was hailed as a hero, and Bjorn became a legend in Snifflefjord."
+    }
+  ]
+}
