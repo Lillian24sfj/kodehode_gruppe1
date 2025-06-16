@@ -57,7 +57,7 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.33.1",
     "vite": "^6.3.5",
-    "vitest": "^3.0.5"
+    "vitest": "^3.2.3"
   },
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.14.0",
